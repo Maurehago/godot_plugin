@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Szenen/Fass.gd" type="Script" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.121569, 0.388235, 0.694118, 1 )
+roughness = 0.44
+
+[sub_resource type="CylinderMesh" id=2]
+material = SubResource( 1 )
+top_radius = 0.3
+bottom_radius = 0.3
+height = 1.0
+
+[sub_resource type="CylinderShape" id=3]
+radius = 0.300261
+height = 0.994285
+
+[node name="PickUp_Objekt" type="Spatial"]
+
+[node name="Fass" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490122, 0 )
+gravity_scale = 0.5
+linear_damp = 0.1
+angular_damp = 0.8
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Fass"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19184, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Fass"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.193348, 0 )
+shape = SubResource( 3 )

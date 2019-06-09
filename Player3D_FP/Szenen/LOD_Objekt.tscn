@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="SphereMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.0509804, 0.945098, 0.8, 1 )
+
+[sub_resource type="CylinderMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.0470588, 0.14902, 0.964706, 1 )
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_color = Color( 1, 0.0196078, 0.0196078, 1 )
+
+[node name="LOD_Objekt" type="Spatial"]
+
+[node name="Area" type="Area" parent="."]
+monitoring = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 1 )
+
+[node name="LOD0" type="MeshInstance" parent="Area"]
+visible = false
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="LOD1" type="MeshInstance" parent="Area"]
+visible = false
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="LOD2" type="MeshInstance" parent="Area"]
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
